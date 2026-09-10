@@ -17,17 +17,18 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-family: 'IBM Plex Mono', ui-monospace, monospace;
   font-size: 10px;
 }
 
 .card__status {
+  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.02em;
 }
 
 .card__code {
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
   opacity: 0.6;
 }
 
