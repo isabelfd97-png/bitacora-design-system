@@ -17,12 +17,13 @@ export interface InsightPanelProps {
   heroCaption: string;
   /** Supporting sentence below, max ~2 lines worth of content. */
   detail: string;
+  theme?: 'light' | 'dark';
 }
 
 /** Glass panel that surfaces one AI-generated insight — currently used for "Plan de hoy". */
-export function InsightPanel({ label, heroValue, heroCaption, detail }: InsightPanelProps) {
+export function InsightPanel({ label, heroValue, heroCaption, detail, theme = 'light' }: InsightPanelProps) {
   return (
-    <div className="insight-panel">
+    <div className={`insight-panel insight-panel--${theme}`}>
       <div className="insight-panel__label-row">
         <SparkleIcon />
         <span className="insight-panel__label">{label}</span>

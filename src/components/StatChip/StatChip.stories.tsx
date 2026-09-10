@@ -4,7 +4,16 @@ import { StatChip } from './StatChip';
 const meta: Meta<typeof StatChip> = {
   title: 'Bitácora/Atoms/StatChip',
   component: StatChip,
-  parameters: { layout: 'centered', backgrounds: { default: 'Bitácora dark' } },
+  parameters: { layout: 'centered' },
+  // StatChip is white-on-transparent — the Storybook "backgrounds" addon parameter
+  // isn't reliably applied in this Storybook version, so we wrap it in a real dark div instead.
+  decorators: [
+    (Story) => (
+      <div style={{ background: '#1a1c19', padding: 24, borderRadius: 12 }}>
+        <Story />
+      </div>
+    ),
+  ],
   argTypes: {
     icon: { control: 'select', options: ['comment', 'task', 'file'] },
   },

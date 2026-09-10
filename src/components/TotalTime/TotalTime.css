@@ -1,0 +1,34 @@
+.total-time {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+}
+
+.total-time__label {
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+}
+
+.total-time__value {
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.total-time--light {
+  color: #a89d88;
+}
+
+.total-time--light .total-time__value {
+  color: #2b2620;
+}
+
+.total-time--dark {
+  color: #736c5c;
+}
+
+.total-time--dark .total-time__value {
+  color: #f1ede2;
+}

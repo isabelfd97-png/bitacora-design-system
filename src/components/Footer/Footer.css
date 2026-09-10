@@ -1,0 +1,10 @@
+.ds-footer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 416px;
+}
+
+.ds-footer__spacer {
+  flex: 1;
+}

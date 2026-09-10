@@ -4,7 +4,14 @@ import { Avatar } from './Avatar';
 const meta: Meta<typeof Avatar> = {
   title: 'Bitácora/Atoms/Avatar',
   component: Avatar,
-  parameters: { layout: 'centered', backgrounds: { default: 'Bitácora dark' } },
+  parameters: { layout: 'centered' },
+  decorators: [
+    (Story) => (
+      <div style={{ background: '#1a1c19', padding: 24, borderRadius: 12 }}>
+        <Story />
+      </div>
+    ),
+  ],
   argTypes: {
     color: { control: 'color' },
   },
