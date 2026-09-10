@@ -3,12 +3,17 @@ import { useState } from 'react';
 import { Card } from './Card';
 
 const meta: Meta<typeof Card> = {
-  title: 'Bitácora/Card',
+  // Molécula: compone Avatar + StatChip + PlayPauseButton + ProgressRail (átomos).
+  title: 'Bitácora/Molecules/Card',
   component: Card,
-  parameters: {
-    layout: 'centered',
-    backgrounds: { default: 'dark' },
-  },
+  parameters: { layout: 'centered' },
+  decorators: [
+    (Story) => (
+      <div style={{ background: '#f3ede0', padding: 24, borderRadius: 12 }}>
+        <Story />
+      </div>
+    ),
+  ],
   argTypes: {
     estado: {
       control: 'select',

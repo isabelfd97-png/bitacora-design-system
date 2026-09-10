@@ -20,5 +20,5 @@ export default meta;
 
 type Story = StoryObj<typeof Footer>;
 
-export const Light: Story = { args: { theme: 'light' } };
-export const Dark: Story = { args: { theme: 'dark' } };
+export const Light: Story = { args: { theme: 'light', totalTime: '00:44:12' } };
+export const Dark: Story = { args: { theme: 'dark', totalTime: '00:44:12' } };
