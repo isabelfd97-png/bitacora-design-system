@@ -1,0 +1,23 @@
+.ds-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+}
+
+.ds-header__brand {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.ds-header--light {
+  color: #726a5b;
+}
+
+.ds-header--dark {
+  color: #b3ab99;
+}

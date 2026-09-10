@@ -1,0 +1,69 @@
+.ds-widget {
+  width: 512px;
+  height: 750px;
+  box-sizing: border-box;
+  border-radius: 26px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+  box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+
+.ds-widget--light {
+  background: #f3ede0;
+  color: #2b2620;
+}
+
+.ds-widget--dark {
+  background: #171b15;
+  color: #f1ede2;
+}
+
+.ds-widget__top {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.ds-widget__greeting {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.ds-widget__board {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  padding-right: 2px;
+}
+
+.ds-widget__board::-webkit-scrollbar {
+  width: 4px;
+}
+.ds-widget__board::-webkit-scrollbar-thumb {
+  background: rgba(128, 128, 128, 0.35);
+  border-radius: 4px;
+}
+
+.ds-widget__section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ds-widget__section-head {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  opacity: 0.55;
+}
