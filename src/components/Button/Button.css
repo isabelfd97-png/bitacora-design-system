@@ -1,0 +1,44 @@
+.ds-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 700;
+  box-shadow: 0 6px 14px -2px rgba(0, 0, 0, 0.22);
+  transition: transform 120ms ease;
+}
+
+.ds-button:active {
+  transform: scale(0.96);
+}
+
+.ds-button--icon {
+  width: 34px;
+  height: 34px;
+  padding: 0;
+}
+
+.ds-button--primary {
+  padding: 8px 16px;
+  font-size: 12px;
+}
+
+.ds-button--light {
+  background: #2b2620;
+  color: #f3ede0;
+}
+
+.ds-button--dark {
+  background: #f3ede0;
+  color: #2b2620;
+}
+
+.ds-button__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

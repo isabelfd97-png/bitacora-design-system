@@ -1,0 +1,57 @@
+.insight-panel {
+  width: 416px;
+  box-sizing: border-box;
+  padding: 12px 16px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow:
+    0 8px 18px -4px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #2b2620;
+}
+
+.insight-panel__label-row {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #c97a3d;
+}
+
+.insight-panel__label {
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+}
+
+.insight-panel__hero-row {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.insight-panel__hero-value {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.insight-panel__hero-caption {
+  font-size: 10px;
+  color: #726a5b;
+}
+
+.insight-panel__detail {
+  margin: 0;
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  font-size: 10px;
+  line-height: 1.4;
+  color: #726a5b;
+}
