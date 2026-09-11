@@ -55,6 +55,13 @@
   font-weight: 700;
 }
 
+.ds-widget__board-wrap {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  display: flex;
+}
+
 .ds-widget__board {
   flex: 1;
   min-height: 0;
@@ -75,6 +82,40 @@
 .ds-widget__board::-webkit-scrollbar-thumb {
   background: rgba(128, 128, 128, 0.35);
   border-radius: 4px;
+}
+
+/* Degradado sobre los bordes del board — las cards se difuminan al
+   entrar/salir por scroll en vez de cortarse en seco contra el header
+   o el footer. Mismo color que el fondo del widget para que se note lo
+   mínimo posible dónde empieza el degradado. */
+.ds-widget__board-fade {
+  position: absolute;
+  left: 0;
+  right: 14px;
+  height: 28px;
+  pointer-events: none;
+}
+
+.ds-widget__board-fade--top {
+  top: 0;
+}
+
+.ds-widget__board-fade--bottom {
+  bottom: 0;
+}
+
+.ds-widget--light .ds-widget__board-fade--top {
+  background: linear-gradient(to bottom, rgba(255, 253, 248, 0.82), rgba(255, 253, 248, 0));
+}
+.ds-widget--light .ds-widget__board-fade--bottom {
+  background: linear-gradient(to top, rgba(255, 253, 248, 0.82), rgba(255, 253, 248, 0));
+}
+
+.ds-widget--dark .ds-widget__board-fade--top {
+  background: linear-gradient(to bottom, rgba(26, 27, 30, 0.78), rgba(26, 27, 30, 0));
+}
+.ds-widget--dark .ds-widget__board-fade--bottom {
+  background: linear-gradient(to top, rgba(26, 27, 30, 0.78), rgba(26, 27, 30, 0));
 }
 
 .ds-widget__section {

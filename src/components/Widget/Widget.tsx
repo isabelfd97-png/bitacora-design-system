@@ -33,18 +33,24 @@ export function Widget({ theme, onToggleTheme, greeting, insight, sections, foot
         <InsightPanel {...insight} theme={theme} />
       </div>
 
-      <div className="ds-widget__board">
-        {sections.map((section) => (
-          <div className="ds-widget__section" key={section.estado}>
-            <div className="ds-widget__section-head">
-              <span>{section.label}</span>
-              <span>{section.cards.length}</span>
+      <div className="ds-widget__board-wrap">
+        <div className="ds-widget__board">
+          {sections.map((section) => (
+            <div className="ds-widget__section" key={section.estado}>
+              <div className="ds-widget__section-head">
+                <span>{section.label}</span>
+                <span>{section.cards.length}</span>
+              </div>
+              {section.cards.map((card, i) => (
+                <Card key={i} estado={section.estado} {...card} />
+              ))}
             </div>
-            {section.cards.map((card, i) => (
-              <Card key={i} estado={section.estado} {...card} />
-            ))}
-          </div>
-        ))}
+          ))}
+        </div>
+        {/* Degradado que difumina las cards al hacer scroll bajo el header
+            y sobre el footer, en vez de un corte seco por el overflow. */}
+        <div className="ds-widget__board-fade ds-widget__board-fade--top" />
+        <div className="ds-widget__board-fade ds-widget__board-fade--bottom" />
       </div>
 
       <Footer {...footer} theme={theme} />
