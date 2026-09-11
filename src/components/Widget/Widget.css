@@ -1,8 +1,14 @@
 .ds-widget {
-  width: 512px;
+  /* Más ancho que antes (512->536) y más padding (16->28) — el hueco
+     extra es justo lo que necesita .ds-widget__board para dejar
+     respirar la sombra de las cards sin salirse de la página (eso
+     causaba que Chromium mostrara sus propias barras de scroll nativas
+     en el borde). El contenido visible (cards, header, footer) mide
+     exactamente lo mismo que antes; el padding solo crece. */
+  width: 536px;
   height: 750px;
   box-sizing: border-box;
-  padding: 16px;
+  padding: 28px;
   display: flex;
   flex-direction: column;
   /* Sin gap entre header/board/footer — quedan pegados a sus líneas
