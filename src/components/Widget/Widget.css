@@ -2,7 +2,6 @@
   width: 512px;
   height: 750px;
   box-sizing: border-box;
-  border-radius: 26px;
   padding: 16px;
   display: flex;
   flex-direction: column;
@@ -12,6 +11,12 @@
   gap: 0;
   font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
   overflow: hidden;
+  /* Sin border-radius aquí: la ventana ya recorta TODO el contenido a
+     esquinas redondeadas de forma nativa (view.setBorderRadius(26) en
+     src/main/index.js). Ponerlo también en CSS duplicaba el redondeado
+     — el antialiasing de cada uno (Chromium vs. la máscara nativa de
+     macOS) no coincide exactamente, así que se veían dos curvas
+     ligeramente desalineadas en vez de una. */
   border: 1px solid transparent;
   /* Efecto glass: el blur real del escritorio detrás de la ventana lo
      hace vibrancy nativo de macOS (src/main/index.js en bitacora-widget,
