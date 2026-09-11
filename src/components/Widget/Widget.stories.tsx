@@ -115,14 +115,20 @@ const insight = {
 function WidgetDemo({ initialTheme }: { initialTheme: 'light' | 'dark' }) {
   const [theme, setTheme] = useState<'light' | 'dark'>(initialTheme);
   return (
-    <Widget
-      theme={theme}
-      onToggleTheme={() => setTheme((t) => (t === 'light' ? 'dark' : 'light'))}
-      greeting="Bienvenida Isabel, empecemos el día"
-      insight={insight}
-      sections={sections}
-      footer={{ totalTime: '00:44:12' }}
-    />
+    // El widget real ya no lleva border-radius propio — en la app de
+    // escritorio la ventana lo recorta a nivel nativo (ver Widget.css).
+    // Aquí en Storybook no hay ventana que lo haga, así que el redondeo
+    // para la preview vive solo en esta story, no en el componente.
+    <div style={{ borderRadius: 26, overflow: 'hidden' }}>
+      <Widget
+        theme={theme}
+        onToggleTheme={() => setTheme((t) => (t === 'light' ? 'dark' : 'light'))}
+        greeting="Bienvenida Isabel, empecemos el día"
+        insight={insight}
+        sections={sections}
+        footer={{ totalTime: '00:44:12' }}
+      />
+    </div>
   );
 }
 
