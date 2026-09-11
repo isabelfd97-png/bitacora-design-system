@@ -8,19 +8,11 @@
 }
 
 .ds-footer--light {
-  /* Ahora que el footer va pegado al board (sin gap), necesita su
-     propio fondo sólido para leerse como una "repisa" — antes era
-     transparente y se apoyaba en el gap + el degradado para separarse
-     visualmente del board. */
-  background: #f5f2f0;
   border-top-color: rgba(0, 0, 0, 0.06);
-  box-shadow: 0 -4px 4px rgba(0, 0, 0, 0.08);
 }
 
 .ds-footer--dark {
-  background: #2d2e32;
   border-top-color: rgba(255, 255, 255, 0.08);
-  box-shadow: 0 -4px 4px rgba(0, 0, 0, 0.35);
 }
 
 .ds-footer__spacer {

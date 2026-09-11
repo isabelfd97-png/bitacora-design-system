@@ -55,12 +55,10 @@
 
 .ds-widget--light .ds-widget__top {
   border-bottom-color: rgba(0, 0, 0, 0.06);
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.08);
 }
 
 .ds-widget--dark .ds-widget__top {
   border-bottom-color: rgba(255, 255, 255, 0.08);
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.35);
 }
 
 .ds-widget__greeting {
