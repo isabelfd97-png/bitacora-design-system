@@ -10,13 +10,15 @@
      con offsets negativos en el degradado de scroll. */
   gap: 0;
   font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
-  overflow: hidden;
-  /* Sin border-radius aquí: la ventana ya recorta TODO el contenido a
-     esquinas redondeadas de forma nativa (view.setBorderRadius(26) en
-     src/main/index.js). Ponerlo también en CSS duplicaba el redondeado
-     — el antialiasing de cada uno (Chromium vs. la máscara nativa de
-     macOS) no coincide exactamente, así que se veían dos curvas
-     ligeramente desalineadas en vez de una. */
+  /* Sin overflow:hidden ni border-radius aquí: la ventana ya recorta TODO
+     el contenido a esquinas redondeadas de forma nativa
+     (view.setBorderRadius(26) en src/main/index.js). Tenerlo también en
+     CSS duplicaba el redondeado (dos curvas con antialiasing distinto,
+     Chromium vs. la máscara nativa de macOS) y además recortaba en seco
+     el glow/sombra de las cards contra el borde del widget en vez de
+     dejarlo respirar en el padding — como la ventana mide exactamente lo
+     mismo que este div, cualquier cosa que se salga sigue clipeada por
+     la ventana, así que no hace falta clipear aquí también. */
   border: 1px solid transparent;
   /* Efecto glass: el blur real del escritorio detrás de la ventana lo
      hace vibrancy nativo de macOS (src/main/index.js en bitacora-widget,
