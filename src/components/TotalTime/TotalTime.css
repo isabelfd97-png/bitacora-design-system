@@ -18,17 +18,17 @@
 }
 
 .total-time--light {
-  color: #a89d88;
+  color: var(--ink-400);
 }
 
 .total-time--light .total-time__value {
-  color: #2b2620;
+  color: var(--ink-700);
 }
 
 .total-time--dark {
-  color: #736c5c;
+  color: var(--ink-500);
 }
 
 .total-time--dark .total-time__value {
-  color: #f1ede2;
+  color: var(--ink-200);
 }

@@ -1,0 +1,51 @@
+/**
+ * Design tokens — generado desde las Color Primitives de Figma
+ * (archivo "Sistema de diseño", colección "Color Primitives").
+ *
+ * Esto es una exportación manual, no una sincronización automática: si
+ * se cambia un valor en Figma, hay que volver a generar este archivo a
+ * mano (o correr el export otra vez) para que el código lo refleje.
+ * Fuente de verdad de los VALORES: Figma. Fuente de verdad de CÓMO SE
+ * APLICAN (qué componente usa qué token, en qué theme): este archivo +
+ * los .css de cada componente que lo importan.
+ *
+ * Solo primitivos de color aquí — cada componente ya resuelve el
+ * light/dark con su propia clase `--light`/`--dark`, así que la capa
+ * "semántica" de Figma (Text/Default/Default, etc.) está aplicada
+ * directamente en cada .css en vez de duplicarse aquí como alias.
+ */
+
+:root {
+  /* Ink — escala neutra (texto, iconos, bordes) */
+  --ink-100: #f3ede0;
+  --ink-200: #f1ede2;
+  --ink-300: #b3ab99;
+  --ink-400: #a89d88;
+  --ink-500: #736c5c;
+  --ink-600: #726a5b;
+  --ink-700: #2b2620;
+  --ink-800: #171b15;
+
+  /* Brand */
+  --orange-300: #e0975a;
+  --orange-400: #c97a3d;
+
+  /* Blanco/negro con alpha — glass, bordes sutiles, sombras */
+  --white-08: rgba(255, 255, 255, 0.08);
+  --white-10: rgba(255, 255, 255, 0.1);
+  --white-12: rgba(255, 255, 255, 0.12);
+  --white-18: rgba(255, 255, 255, 0.18);
+  --white-22: rgba(255, 255, 255, 0.22);
+  --white-28: rgba(255, 255, 255, 0.28);
+  --white-60: rgba(255, 255, 255, 0.6);
+  --white-65: rgba(255, 255, 255, 0.65);
+  --black-06: rgba(0, 0, 0, 0.06);
+  --black-60: rgba(0, 0, 0, 0.6);
+  /* Ink/700 y Ink/100 a baja opacidad — usados como borde, no como fill */
+  --ink-700-08: rgba(43, 38, 32, 0.08);
+
+  /* Control (ThemeToggle) — no son parte de la escala Ink, son su propio grupo en Figma */
+  --control-track-light: #f5f2f0;
+  --control-track-dark: #2d2e32;
+  --control-thumb-dark: #f7f7f5;
+}

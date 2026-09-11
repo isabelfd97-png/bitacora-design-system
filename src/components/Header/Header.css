@@ -21,9 +21,9 @@
 }
 
 .ds-header--light {
-  color: #726a5b;
+  color: var(--ink-600);
 }
 
 .ds-header--dark {
-  color: #b3ab99;
+  color: var(--ink-300);
 }
