@@ -41,7 +41,11 @@
   display: flex;
   flex-direction: column;
   gap: 28px;
-  padding-right: 2px;
+  /* La scrollbar se dibuja en el hueco del padding del widget (16px) en
+     vez de robar ancho a las cards — así el ancho visible de las cards
+     coincide con el del header/insight panel/footer de arriba. */
+  margin-right: -14px;
+  padding-right: 14px;
 }
 
 .ds-widget__board::-webkit-scrollbar {
@@ -60,7 +64,8 @@
 
 .ds-widget__section-head {
   display: flex;
-  justify-content: space-between;
+  align-items: baseline;
+  gap: 6px;
   font-family: 'IBM Plex Mono', ui-monospace, monospace;
   font-size: 10px;
   letter-spacing: 0.5px;
