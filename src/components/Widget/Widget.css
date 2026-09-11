@@ -86,36 +86,37 @@
 
 /* Degradado sobre los bordes del board — las cards se difuminan al
    entrar/salir por scroll en vez de cortarse en seco contra el header
-   o el footer. Mismo color que el fondo del widget para que se note lo
-   mínimo posible dónde empieza el degradado. */
+   o el footer. Arranca justo en la línea divisoria (de ahí el offset
+   negativo, que cubre también el gap de 20px) y es más sutil que el
+   fondo real del widget para notarse menos dónde empieza. */
 .ds-widget__board-fade {
   position: absolute;
   left: 0;
   right: 14px;
-  height: 28px;
+  height: 44px;
   pointer-events: none;
 }
 
 .ds-widget__board-fade--top {
-  top: 0;
+  top: -20px;
 }
 
 .ds-widget__board-fade--bottom {
-  bottom: 0;
+  bottom: -20px;
 }
 
 .ds-widget--light .ds-widget__board-fade--top {
-  background: linear-gradient(to bottom, rgba(255, 253, 248, 0.82), rgba(255, 253, 248, 0));
+  background: linear-gradient(to bottom, rgba(255, 253, 248, 0.5), rgba(255, 253, 248, 0));
 }
 .ds-widget--light .ds-widget__board-fade--bottom {
-  background: linear-gradient(to top, rgba(255, 253, 248, 0.82), rgba(255, 253, 248, 0));
+  background: linear-gradient(to top, rgba(255, 253, 248, 0.5), rgba(255, 253, 248, 0));
 }
 
 .ds-widget--dark .ds-widget__board-fade--top {
-  background: linear-gradient(to bottom, rgba(26, 27, 30, 0.78), rgba(26, 27, 30, 0));
+  background: linear-gradient(to bottom, rgba(26, 27, 30, 0.45), rgba(26, 27, 30, 0));
 }
 .ds-widget--dark .ds-widget__board-fade--bottom {
-  background: linear-gradient(to top, rgba(26, 27, 30, 0.78), rgba(26, 27, 30, 0));
+  background: linear-gradient(to top, rgba(26, 27, 30, 0.45), rgba(26, 27, 30, 0));
 }
 
 .ds-widget__section {

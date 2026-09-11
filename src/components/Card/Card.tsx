@@ -30,6 +30,11 @@ function lighten(cssHsl: string, extraLightness: number): string {
   return `hsl(${h}deg ${s}% ${newL}%)`;
 }
 
+/** Embeds an alpha channel into an `hsl(Hdeg S% L%)` string via CSS Color 4 slash syntax. */
+function withAlpha(cssHsl: string, alpha: number): string {
+  return cssHsl.replace(/\)$/, ` / ${alpha})`);
+}
+
 /** The card component of Bitácora's kanban board — one project, one state. */
 export function Card({
   estado,
@@ -49,12 +54,29 @@ export function Card({
   const avatarColor = lighten(stop0, 16);
   const showPlay = canPlay(estado);
 
+  const isPlaying = showPlay && playing;
+  const isEnCursoPaused = showPlay && !playing;
+
+  let border;
+  let boxShadow;
+  if (isPlaying) {
+    border = '1.5px solid rgba(255, 255, 255, 0.5)';
+    boxShadow = `0 18px 44px 2px ${withAlpha(stop0, 0.55)}, 0 4px 8px rgba(0, 0, 0, 0.18), inset 0 1px 2px rgba(255, 255, 255, 0.7)`;
+  } else if (isEnCursoPaused) {
+    border = 'none';
+    boxShadow = `0 14px 26px ${withAlpha(stop0, 0.16)}, 0 3px 6px rgba(0, 0, 0, 0.14), inset 0 1px 0 rgba(255, 255, 255, 0.25)`;
+  } else {
+    border = '1px solid rgba(77, 69, 59, 0.15)';
+    boxShadow = `0 16px 34px ${withAlpha(stop0, 0.35)}, 0 3px 7px rgba(0, 0, 0, 0.16), inset 0 1px 0 rgba(255, 255, 255, 0.35)`;
+  }
+
   return (
     <div
       className="card"
       style={{
-        background: `linear-gradient(135deg, ${stop0}, ${stop1})`,
-        boxShadow: `0 14px 26px -4px ${stop0.replace(')', ' / 35%)')}, 0 3px 6px rgba(0,0,0,0.14)`,
+        background: `linear-gradient(180deg, ${withAlpha(stop0, 0.85)}, ${withAlpha(stop1, 0.85)})`,
+        border,
+        boxShadow,
       }}
     >
       <ProgressRail percent={pct} />
