@@ -93,11 +93,19 @@
      y la última se corta justo contra el borde inferior. */
   padding-top: 10px;
   padding-bottom: 10px;
-  /* La scrollbar se dibuja en el hueco del padding del widget (16px) en
-     vez de robar ancho a las cards — así el ancho visible de las cards
-     coincide con el del header/insight panel/footer de arriba. */
-  margin-right: -14px;
-  padding-right: 14px;
+  /* overflow-y:auto recorta también el eje horizontal aunque no se pida
+     (es como funciona overflow en CSS: si un eje no es "visible" el otro
+     deja de serlo también) — por eso el glow/sombra de las cards se
+     cortaba en seco por los laterales, aunque .ds-widget ya no tenga su
+     propio overflow:hidden. Se compensa igual que ya hacíamos para la
+     scrollbar: la caja de scroll se hace más ancha que las cards
+     (margin negativo) y se empuja el contenido de vuelta a su sitio con
+     padding — así queda hueco real dentro de la zona clippable para que
+     la sombra se difumine antes de tocar el borde. */
+  margin-left: -24px;
+  padding-left: 24px;
+  margin-right: -24px;
+  padding-right: 24px;
 }
 
 .ds-widget__board::-webkit-scrollbar {
