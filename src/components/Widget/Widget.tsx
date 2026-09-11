@@ -47,10 +47,6 @@ export function Widget({ theme, onToggleTheme, greeting, insight, sections, foot
             </div>
           ))}
         </div>
-        {/* Degradado que difumina las cards al hacer scroll bajo el header
-            y sobre el footer, en vez de un corte seco por el overflow. */}
-        <div className="ds-widget__board-fade ds-widget__board-fade--top" />
-        <div className="ds-widget__board-fade ds-widget__board-fade--bottom" />
       </div>
 
       <Footer {...footer} theme={theme} />
