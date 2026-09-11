@@ -1,15 +1,25 @@
 .theme-toggle {
-  width: 40px;
-  height: 22px;
-  padding: 4px;
-  border: none;
-  border-radius: 999px;
-  background: rgba(0, 0, 0, 0.08);
+  width: 32px;
+  height: 18px;
+  padding: 2px 4px;
+  border: 1px solid transparent;
+  border-radius: 9px;
   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.14);
   cursor: pointer;
   box-sizing: border-box;
   display: flex;
   align-items: center;
+  transition: background 160ms ease, border-color 160ms ease;
+}
+
+.theme-toggle--light {
+  background: #f5f2f0;
+  border-color: rgba(43, 38, 32, 0.08);
+}
+
+.theme-toggle--dark {
+  background: #2d2e32;
+  border-color: rgba(255, 255, 255, 0.12);
 }
 
 .theme-toggle__thumb {
@@ -30,7 +40,10 @@
 }
 
 .theme-toggle__thumb--dark {
-  transform: translateX(18px);
-  background: #2b2620;
-  color: #f3ede0;
+  /* En modo oscuro el thumb del switch es claro con el icono de luna
+     oscuro encima (Figma: fill #F7F7F5 / icono #2B2620) — al revés de
+     como estaba antes. */
+  transform: translateX(10px);
+  background: #f7f7f5;
+  color: #2b2620;
 }

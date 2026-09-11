@@ -15,7 +15,7 @@ export interface FooterProps {
 /** Molécula: compone Button (x3) + TotalTime (átomos). Barra inferior del widget. */
 export function Footer({ theme = 'light', totalTime, onNewProject, onOpenStats, onOpenSettings }: FooterProps) {
   return (
-    <div className="ds-footer">
+    <div className={`ds-footer ds-footer--${theme}`}>
       <Button variant="primary" icon={<PlusIcon />} theme={theme} onClick={onNewProject}>
         Nuevo proyecto
       </Button>

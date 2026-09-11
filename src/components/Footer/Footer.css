@@ -3,6 +3,18 @@
   align-items: center;
   gap: 8px;
   width: 100%;
+  padding-top: 16px;
+  border-top: 1px solid transparent;
+}
+
+.ds-footer--light {
+  border-top-color: rgba(0, 0, 0, 0.06);
+  box-shadow: 0 -4px 4px rgba(0, 0, 0, 0.08);
+}
+
+.ds-footer--dark {
+  border-top-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 -4px 4px rgba(0, 0, 0, 0.35);
 }
 
 .ds-footer__spacer {

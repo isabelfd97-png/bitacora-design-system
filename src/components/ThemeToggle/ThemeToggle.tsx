@@ -29,7 +29,7 @@ export function ThemeToggle({ theme, onToggle }: ThemeToggleProps) {
       role="switch"
       aria-checked={theme === 'dark'}
       aria-label={theme === 'dark' ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro'}
-      className="theme-toggle"
+      className={`theme-toggle theme-toggle--${theme}`}
       onClick={onToggle}
     >
       <span className={`theme-toggle__thumb theme-toggle__thumb--${theme}`}>
