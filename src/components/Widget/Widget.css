@@ -6,7 +6,10 @@
   padding: 16px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  /* Sin gap entre header/board/footer — quedan pegados a sus líneas
+     divisorias, sin el hueco de 20px que antes había que "puentear"
+     con offsets negativos en el degradado de scroll. */
+  gap: 0;
   font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
   overflow: hidden;
   border: 1px solid transparent;
@@ -100,26 +103,26 @@
 
 /* Degradado sobre los bordes del board — las cards se difuminan al
    entrar/salir por scroll en vez de cortarse en seco contra el header
-   o el footer. Arranca justo en la línea divisoria (de ahí el offset
-   negativo, que cubre también el gap de 20px). El pico del degradado
-   usa EXACTAMENTE la misma opacidad que el fondo real del widget — si
-   fuera más bajo (como antes) se nota un salto brusco justo en la
-   línea, que es el "corte" raro. La sensación de sutileza viene de que
-   el degradado es largo (56px), no de bajar el pico. */
+   o el footer. Ya no hay gap que puentear (ver arriba), así que arranca
+   directamente en el borde del board-wrap, que coincide con la línea
+   divisoria. El pico del degradado usa EXACTAMENTE la misma opacidad
+   que el fondo real del widget — si fuera más bajo se nota un salto
+   brusco justo en la línea. */
 .ds-widget__board-fade {
   position: absolute;
   left: 0;
   right: 14px;
-  height: 56px;
   pointer-events: none;
 }
 
 .ds-widget__board-fade--top {
-  top: -20px;
+  top: 0;
+  height: 40px;
 }
 
 .ds-widget__board-fade--bottom {
-  bottom: -20px;
+  bottom: 0;
+  height: 27px;
 }
 
 .ds-widget--light .ds-widget__board-fade--top {
