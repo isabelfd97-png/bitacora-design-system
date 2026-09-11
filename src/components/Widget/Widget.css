@@ -16,19 +16,19 @@
   /* Efecto glass: el fondo real es semitransparente + blur, deja ver
      (difuminado) lo que hay detrás del widget en el escritorio — como en
      el Figma fuente, no un color sólido opaco. */
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
 }
 
 .ds-widget--light {
-  background: rgba(255, 253, 248, 0.82);
+  background: rgba(255, 255, 255, 0.6);
   border-color: rgba(217, 212, 204, 0.5);
   color: #2b2620;
   box-shadow: 0 18px 38px -10px rgba(0, 0, 0, 0.08);
 }
 
 .ds-widget--dark {
-  background: rgba(26, 27, 30, 0.78);
+  background: rgba(0, 0, 0, 0.6);
   border-color: rgba(255, 255, 255, 0.22);
   color: #f1ede2;
   box-shadow: 0 18px 38px -10px rgba(0, 0, 0, 0.32);
