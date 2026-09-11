@@ -28,13 +28,13 @@
 }
 
 .ds-button--light {
-  background: #2b2620;
-  color: #f3ede0;
+  background: var(--ink-700);
+  color: var(--ink-100);
 }
 
 .ds-button--dark {
-  background: #f3ede0;
-  color: #2b2620;
+  background: var(--ink-100);
+  color: var(--ink-700);
 }
 
 .ds-button__icon {

@@ -13,13 +13,13 @@
 }
 
 .theme-toggle--light {
-  background: #f5f2f0;
-  border-color: rgba(43, 38, 32, 0.08);
+  background: var(--control-track-light);
+  border-color: var(--ink-700-08);
 }
 
 .theme-toggle--dark {
-  background: #2d2e32;
-  border-color: rgba(255, 255, 255, 0.12);
+  background: var(--control-track-dark);
+  border-color: var(--white-12);
 }
 
 .theme-toggle__thumb {
@@ -35,15 +35,15 @@
 
 .theme-toggle__thumb--light {
   transform: translateX(0);
-  background: #726a5b;
-  color: #f3ede0;
+  background: var(--ink-600);
+  color: var(--ink-100);
 }
 
 .theme-toggle__thumb--dark {
   /* En modo oscuro el thumb del switch es claro con el icono de luna
-     oscuro encima (Figma: fill #F7F7F5 / icono #2B2620) — al revés de
-     como estaba antes. */
+     oscuro encima (Figma: fill Control/Thumb/Dark / icono Ink/700) — al
+     revés de como estaba antes. */
   transform: translateX(10px);
-  background: #f7f7f5;
-  color: #2b2620;
+  background: var(--control-thumb-dark);
+  color: var(--ink-700);
 }

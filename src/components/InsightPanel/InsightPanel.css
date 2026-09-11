@@ -19,32 +19,32 @@
 .insight-panel--light {
   /* Más transparente que el fondo del widget (0.82) para que se note
      la diferencia — antes casi lo igualaba y se perdía el efecto. */
-  background: rgba(255, 255, 255, 0.28);
-  border: 1px solid rgba(255, 255, 255, 0.65);
+  background: var(--white-28);
+  border: 1px solid var(--white-65);
   box-shadow:
     0 10px 24px -6px rgba(0, 0, 0, 0.14),
     inset 0 1px 0 rgba(255, 255, 255, 0.6);
-  color: #2b2620;
+  color: var(--ink-700);
 }
 
 .insight-panel--dark {
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: var(--white-10);
+  border: 1px solid var(--white-18);
   box-shadow:
     0 10px 24px -6px rgba(0, 0, 0, 0.4),
     inset 0 1px 0 rgba(255, 255, 255, 0.14);
-  color: #f1ede2;
+  color: var(--ink-200);
 }
 
 .insight-panel__label-row {
   display: flex;
   align-items: center;
   gap: 5px;
-  color: #c97a3d;
+  color: var(--orange-400);
 }
 
 .insight-panel--dark .insight-panel__label-row {
-  color: #e0975a;
+  color: var(--orange-300);
 }
 
 .insight-panel__label {
@@ -68,21 +68,20 @@
 
 .insight-panel__hero-caption {
   font-size: 10px;
-  color: #726a5b;
+  color: var(--ink-600);
 }
 
 .insight-panel--dark .insight-panel__hero-caption {
-  color: #b3ab99;
+  color: var(--ink-300);
 }
 
 .insight-panel__detail {
+  /* Sin color propio: hereda el color base del panel (Ink/700 en claro,
+     Ink/200 en oscuro, ver .insight-panel--light/--dark) — antes se
+     sobreescribía a un gris apagado (Ink/600/Ink/300) y quedaba con
+     poco contraste, apenas legible encima del glass. */
   margin: 0;
   font-family: 'IBM Plex Mono', ui-monospace, monospace;
   font-size: 10px;
   line-height: 1.4;
-  color: #726a5b;
-}
-
-.insight-panel--dark .insight-panel__detail {
-  color: #b3ab99;
 }

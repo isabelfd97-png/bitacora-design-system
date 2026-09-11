@@ -8,11 +8,11 @@
 }
 
 .ds-footer--light {
-  border-top-color: rgba(0, 0, 0, 0.06);
+  border-top-color: var(--black-06);
 }
 
 .ds-footer--dark {
-  border-top-color: rgba(255, 255, 255, 0.08);
+  border-top-color: var(--white-08);
 }
 
 .ds-footer__spacer {

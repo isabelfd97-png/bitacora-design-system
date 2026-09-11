@@ -38,13 +38,13 @@
 .ds-widget--light {
   background: transparent;
   border-color: rgba(217, 212, 204, 0.5);
-  color: #2b2620;
+  color: var(--ink-700);
 }
 
 .ds-widget--dark {
   background: transparent;
-  border-color: rgba(255, 255, 255, 0.22);
-  color: #f1ede2;
+  border-color: var(--white-22);
+  color: var(--ink-200);
 }
 
 .ds-widget__top {
@@ -67,11 +67,11 @@
 }
 
 .ds-widget--light .ds-widget__top {
-  border-bottom-color: rgba(0, 0, 0, 0.06);
+  border-bottom-color: var(--black-06);
 }
 
 .ds-widget--dark .ds-widget__top {
-  border-bottom-color: rgba(255, 255, 255, 0.08);
+  border-bottom-color: var(--white-08);
 }
 
 .ds-widget__greeting {
@@ -137,4 +137,22 @@
   letter-spacing: 0.5px;
   text-transform: uppercase;
   opacity: 0.55;
+}
+
+/* Spotlight: con algo en foco, todo lo que no sea esa card se atenúa —
+   header, saludo, insight, resto de cards y footer. La propia card en
+   play (.card--playing, ver Card.css) se queda intacta. */
+.ds-widget__top,
+.ds-widget__section-head,
+.ds-widget__board .card:not(.card--playing),
+.ds-footer {
+  transition: opacity 420ms ease, filter 420ms ease;
+}
+
+.ds-widget--focused .ds-widget__top,
+.ds-widget--focused .ds-widget__section-head,
+.ds-widget--focused .ds-widget__board .card:not(.card--playing),
+.ds-widget--focused .ds-footer {
+  opacity: 0.4;
+  filter: saturate(0.7);
 }
