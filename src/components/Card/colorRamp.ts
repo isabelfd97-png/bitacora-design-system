@@ -3,30 +3,32 @@
 // `01 Design/Card Component Spec.md`: color follows % complete,
 // except En pausa (always gray), Backlog (always 0%/azul claro)
 // and Hecho (always 100%/verde).
+//
+// Los colores vienen directos de la colección "Color" de Figma
+// (grupo Background/Growth/<hue>/Base|Highlight) — no se recalculan
+// aquí con HSL, para que el código y Figma no puedan desincronizarse
+// en el propio valor del color, solo en cuál hue toca en cada banda.
 
 export type Estado = 'en-curso' | 'en-pausa' | 'esperando' | 'backlog' | 'hecho';
 
 interface Stage {
   name: string;
-  h: number;
-  s: number;
-  l: number;
+  /** Growth/<hue>/Base en Figma — el stop más oscuro/saturado del degradado. */
+  base: string;
+  /** Growth/<hue>/Highlight en Figma — el stop más claro. */
+  highlight: string;
 }
 
 const STAGES: { min: number; max: number; stage: Stage }[] = [
-  { min: 0, max: 16, stage: { name: 'Azul claro', h: 205, s: 0.55, l: 0.58 } },
-  { min: 17, max: 33, stage: { name: 'Lavanda', h: 265, s: 0.42, l: 0.58 } },
-  { min: 34, max: 50, stage: { name: 'Rosa', h: 330, s: 0.48, l: 0.58 } },
-  { min: 51, max: 67, stage: { name: 'Amarillo', h: 42, s: 0.6, l: 0.54 } },
-  { min: 68, max: 84, stage: { name: 'Amarillo verdoso', h: 78, s: 0.5, l: 0.42 } },
-  { min: 85, max: 100, stage: { name: 'Verde', h: 140, s: 0.35, l: 0.48 } },
+  { min: 0, max: 16, stage: { name: 'Azul claro', base: '#2E81BD', highlight: '#5199CD' } },
+  { min: 17, max: 33, stage: { name: 'Lavanda', base: '#6C3DAE', highlight: '#8760BE' } },
+  { min: 34, max: 50, stage: { name: 'Rosa', base: '#B53675', highlight: '#C5598F' } },
+  { min: 51, max: 67, stage: { name: 'Amarillo', base: '#B28724', highlight: '#CEA23B' } },
+  { min: 68, max: 84, stage: { name: 'Amarillo verdoso', base: '#5E7722', highlight: '#7A9933' } },
+  { min: 85, max: 100, stage: { name: 'Verde', base: '#36814F', highlight: '#4C9E68' } },
 ];
 
-const GRIS: Stage = { name: 'Gris', h: 30, s: 0.06, l: 0.55 };
-
-function hslToCss(h: number, s: number, l: number): string {
-  return `hsl(${h}deg ${Math.round(s * 100)}% ${Math.round(l * 100)}%)`;
-}
+const GRIS: Stage = { name: 'Gris', base: '#7B6E60', highlight: '#8E8780' };
 
 /** Returns the CSS gradient stops (darker top-left, lighter bottom-right) for a card. */
 export function gradientFor(estado: Estado, percent: number): { stop0: string; stop1: string; stageName: string } {
@@ -41,9 +43,7 @@ export function gradientFor(estado: Estado, percent: number): { stop0: string; s
     const band = STAGES.find((s) => percent >= s.min && percent <= s.max) ?? STAGES[STAGES.length - 1];
     stage = band.stage;
   }
-  const stop0 = hslToCss(stage.h, Math.min(1, stage.s + 0.06), Math.max(0, stage.l - 0.12));
-  const stop1 = hslToCss(stage.h, stage.s, Math.max(0, stage.l - 0.02));
-  return { stop0, stop1, stageName: stage.name };
+  return { stop0: stage.base, stop1: stage.highlight, stageName: stage.name };
 }
 
 export const STATUS_LABEL: Record<Estado, string> = {

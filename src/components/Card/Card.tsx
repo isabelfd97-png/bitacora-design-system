@@ -22,17 +22,23 @@ export interface CardProps {
   onTogglePlay?: () => void;
 }
 
-function lighten(cssHsl: string, extraLightness: number): string {
-  const match = cssHsl.match(/hsl\((\d+)deg (\d+)% (\d+)%\)/);
-  if (!match) return cssHsl;
-  const [, h, s, l] = match;
-  const newL = Math.min(92, Number(l) + extraLightness);
-  return `hsl(${h}deg ${s}% ${newL}%)`;
+function hexToRgb(hex: string): [number, number, number] {
+  const clean = hex.replace('#', '');
+  return [parseInt(clean.slice(0, 2), 16), parseInt(clean.slice(2, 4), 16), parseInt(clean.slice(4, 6), 16)];
 }
 
-/** Embeds an alpha channel into an `hsl(Hdeg S% L%)` string via CSS Color 4 slash syntax. */
-function withAlpha(cssHsl: string, alpha: number): string {
-  return cssHsl.replace(/\)$/, ` / ${alpha})`);
+/** Blends a hex color toward white — used for the avatar accent, a touch lighter than the card's own stop0. */
+function lighten(hex: string, percent: number): string {
+  const [r, g, b] = hexToRgb(hex);
+  const t = percent / 100;
+  const mix = (c: number) => Math.round(c + (255 - c) * t);
+  return `rgb(${mix(r)}, ${mix(g)}, ${mix(b)})`;
+}
+
+/** Embeds an alpha channel into a hex color as `rgba(...)`. */
+function withAlpha(hex: string, alpha: number): string {
+  const [r, g, b] = hexToRgb(hex);
+  return `rgba(${r}, ${g}, ${b}, ${alpha})`;
 }
 
 /** The card component of Bitácora's kanban board — one project, one state. */

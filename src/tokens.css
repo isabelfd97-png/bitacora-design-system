@@ -48,4 +48,23 @@
   --control-track-light: #f5f2f0;
   --control-track-dark: #2d2e32;
   --control-thumb-dark: #f7f7f5;
+
+  /* Growth — escala de color por % de la Card (Background/Growth/<hue> en Figma).
+     Estos mismos hex están duplicados como literales en colorRamp.ts porque ese
+     archivo es TypeScript puro (sin acceso a custom properties CSS) — si se
+     cambia un hue aquí, hay que cambiarlo también ahí. */
+  --growth-blue-base: #2e81bd;
+  --growth-blue-highlight: #5199cd;
+  --growth-purple-base: #6c3dae;
+  --growth-purple-highlight: #8760be;
+  --growth-pink-base: #b53675;
+  --growth-pink-highlight: #c5598f;
+  --growth-yellow-base: #b28724;
+  --growth-yellow-highlight: #cea23b;
+  --growth-olive-base: #5e7722;
+  --growth-olive-highlight: #7a9933;
+  --growth-green-base: #36814f;
+  --growth-green-highlight: #4c9e68;
+  --growth-gray-base: #7b6e60;
+  --growth-gray-highlight: #8e8780;
 }
