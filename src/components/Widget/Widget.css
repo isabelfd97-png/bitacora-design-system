@@ -138,3 +138,21 @@
   text-transform: uppercase;
   opacity: 0.55;
 }
+
+/* Spotlight: con algo en foco, todo lo que no sea esa card se atenúa —
+   header, saludo, insight, resto de cards y footer. La propia card en
+   play (.card--playing, ver Card.css) se queda intacta. */
+.ds-widget__top,
+.ds-widget__section-head,
+.ds-widget__board .card:not(.card--playing),
+.ds-footer {
+  transition: opacity 420ms ease, filter 420ms ease;
+}
+
+.ds-widget--focused .ds-widget__top,
+.ds-widget--focused .ds-widget__section-head,
+.ds-widget--focused .ds-widget__board .card:not(.card--playing),
+.ds-widget--focused .ds-footer {
+  opacity: 0.4;
+  filter: saturate(0.7);
+}

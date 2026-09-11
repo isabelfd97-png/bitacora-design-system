@@ -11,6 +11,57 @@
   overflow: hidden;
   font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
   color: #fff;
+  /* Transición suave al entrar/salir de play (border y box-shadow los
+     recalcula Card.tsx según isPlaying/isEnCursoPaused). */
+  transition: border-color 420ms ease, box-shadow 420ms ease, background 420ms ease;
+}
+
+/* Brillo mientras el timer corre: barrido de luz en bucle, con fade-in/out
+   propio al entrar y salir de play (independiente del transition de arriba,
+   que solo cubre border/box-shadow/background). */
+.card__glow {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  overflow: hidden;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 420ms ease;
+}
+
+.card__glow--active {
+  opacity: 1;
+}
+
+.card__glow::before {
+  content: '';
+  position: absolute;
+  top: -30%;
+  bottom: -30%;
+  left: -55%;
+  width: 40%;
+  background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.22), transparent);
+  animation: card-glow-sweep 3.6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes card-glow-sweep {
+  0% {
+    left: -55%;
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0;
+  }
+  100% {
+    left: 110%;
+    opacity: 0;
+  }
 }
 
 .card__header {

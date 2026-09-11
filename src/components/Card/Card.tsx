@@ -63,7 +63,10 @@ export function Card({
     border = '1.5px solid rgba(255, 255, 255, 0.5)';
     boxShadow = `0 18px 44px 2px ${withAlpha(stop0, 0.55)}, 0 4px 8px rgba(0, 0, 0, 0.18), inset 0 1px 2px rgba(255, 255, 255, 0.7)`;
   } else if (isEnCursoPaused) {
-    border = 'none';
+    // Mismo grosor de borde que isPlaying (solo cambia el color a
+    // transparente) para que la transición entre play/pausa interpole
+    // color en vez de saltar entre "none" y un borde real.
+    border = '1.5px solid rgba(255, 255, 255, 0)';
     boxShadow = `0 14px 26px ${withAlpha(stop0, 0.16)}, 0 3px 6px rgba(0, 0, 0, 0.14), inset 0 1px 0 rgba(255, 255, 255, 0.25)`;
   } else {
     border = '1px solid rgba(77, 69, 59, 0.15)';
@@ -72,13 +75,17 @@ export function Card({
 
   return (
     <div
-      className="card"
+      className={`card${isPlaying ? ' card--playing' : ''}`}
       style={{
         background: `linear-gradient(180deg, ${withAlpha(stop0, 0.85)}, ${withAlpha(stop1, 0.85)})`,
         border,
         boxShadow,
       }}
     >
+      {/* Brillo animado mientras el timer corre — fade-in/out suave al
+          entrar y salir de play, barrido continuo de luz mientras dura. */}
+      {showPlay && <div className={`card__glow${isPlaying ? ' card__glow--active' : ''}`} />}
+
       <ProgressRail percent={pct} />
 
       <div className="card__header">
