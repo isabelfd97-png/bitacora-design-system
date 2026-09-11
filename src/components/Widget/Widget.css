@@ -103,40 +103,43 @@
 
 /* Degradado sobre los bordes del board — las cards se difuminan al
    entrar/salir por scroll en vez de cortarse en seco contra el header
-   o el footer. Ya no hay gap que puentear (ver arriba), así que arranca
-   directamente en el borde del board-wrap, que coincide con la línea
-   divisoria. El pico del degradado usa EXACTAMENTE la misma opacidad
-   que el fondo real del widget — si fuera más bajo se nota un salto
-   brusco justo en la línea. */
+   o el footer. Ancho completo (izquierda Y derecha a 0) — antes tenía
+   `right: 14px` para no tapar la scrollbar, pero eso dejaba una franja
+   sin difuminar justo en el borde derecho, un corte raro que no existe
+   en el Figma fuente (ahí el rectángulo del fade ocupa el ancho
+   completo). El fade tiene pointer-events:none, así que superponerse
+   a la scrollbar no molesta a la interacción. El pico ahora es opacidad
+   total (1, no 0.82/0.78) para que combine sin transición visible con
+   el fondo sólido del footer/la línea del header. */
 .ds-widget__board-fade {
   position: absolute;
   left: 0;
-  right: 14px;
+  right: 0;
   pointer-events: none;
 }
 
 .ds-widget__board-fade--top {
   top: 0;
-  height: 40px;
+  height: 24px;
 }
 
 .ds-widget__board-fade--bottom {
   bottom: 0;
-  height: 27px;
+  height: 17px;
 }
 
 .ds-widget--light .ds-widget__board-fade--top {
-  background: linear-gradient(to bottom, rgba(255, 253, 248, 0.82), rgba(255, 253, 248, 0));
+  background: linear-gradient(to bottom, rgba(255, 253, 248, 1), rgba(255, 253, 248, 0));
 }
 .ds-widget--light .ds-widget__board-fade--bottom {
-  background: linear-gradient(to top, rgba(255, 253, 248, 0.82), rgba(255, 253, 248, 0));
+  background: linear-gradient(to top, rgba(255, 253, 248, 1), rgba(255, 253, 248, 0));
 }
 
 .ds-widget--dark .ds-widget__board-fade--top {
-  background: linear-gradient(to bottom, rgba(26, 27, 30, 0.78), rgba(26, 27, 30, 0));
+  background: linear-gradient(to bottom, rgba(26, 27, 30, 1), rgba(26, 27, 30, 0));
 }
 .ds-widget--dark .ds-widget__board-fade--bottom {
-  background: linear-gradient(to top, rgba(26, 27, 30, 0.78), rgba(26, 27, 30, 0));
+  background: linear-gradient(to top, rgba(26, 27, 30, 1), rgba(26, 27, 30, 0));
 }
 
 .ds-widget__section {
