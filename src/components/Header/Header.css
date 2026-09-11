@@ -3,10 +3,6 @@
   align-items: center;
   justify-content: space-between;
   font-family: 'IBM Plex Mono', ui-monospace, monospace;
-  /* Zona de arrastre del widget (ventana frameless de Electron) — el
-     switch de tema se excluye explícitamente más abajo para que siga
-     siendo clicable. */
-  -webkit-app-region: drag;
 }
 
 .ds-header button,

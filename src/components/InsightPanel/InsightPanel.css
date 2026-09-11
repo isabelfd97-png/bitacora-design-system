@@ -3,12 +3,13 @@
   box-sizing: border-box;
   padding: 12px 16px;
   border-radius: 14px;
-  /* Menos blur que antes (10px, como en el Figma fuente) — encima de un
-     fondo ya de por sí liso, un blur más fuerte no aporta textura
-     visible y solo hacía que el panel se leyera como un bloque blanco
-     opaco en vez de cristal. */
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  /* Sin blur propio: el widget entero ya aplica backdrop-filter, y
+     blurear ese mismo fondo otra vez no cambia nada visible (no hay
+     textura detrás que difuminar) — solo suma una pasada de
+     compositing extra en cada repintado, que es parte de por qué el
+     widget se notaba lento/atascado al arrastrarlo. La sensación de
+     cristal viene del contraste de opacidad + el borde, no de un
+     segundo blur anidado. */
   display: flex;
   flex-direction: column;
   gap: 4px;

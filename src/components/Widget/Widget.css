@@ -12,9 +12,12 @@
   border: 1px solid transparent;
   /* Efecto glass: el fondo real es semitransparente + blur, deja ver
      (difuminado) lo que hay detrás del widget en el escritorio — como en
-     el Figma fuente, no un color sólido opaco. */
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+     el Figma fuente, no un color sólido opaco. Radio moderado a
+     propósito: un blur más fuerte recalcula más caro en cada frame
+     mientras se arrastra la ventana, y eso es lo que se notaba como
+     "atascos" al mover el widget. */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .ds-widget--light {
@@ -37,6 +40,17 @@
   gap: 16px;
   padding-bottom: 16px;
   border-bottom: 1px solid transparent;
+  /* Zona de arrastre del widget (ventana frameless de Electron). Antes
+     solo la tira del header (18px) era arrastrable, así que agarrar
+     desde el saludo o el panel "Plan de hoy" no movía la ventana —
+     ahora todo el bloque superior es agarrable, salvo sus controles. */
+  -webkit-app-region: drag;
+}
+
+.ds-widget__top button,
+.ds-widget__top input,
+.ds-widget__top [role='switch'] {
+  -webkit-app-region: no-drag;
 }
 
 .ds-widget--light .ds-widget__top {
