@@ -13,9 +13,13 @@
   font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
   overflow: hidden;
   border: 1px solid transparent;
-  /* Efecto glass: el fondo real es semitransparente + blur, deja ver
-     (difuminado) lo que hay detrás del widget en el escritorio — como en
-     el Figma fuente, no un color sólido opaco. */
+  /* Efecto glass: fondo semitransparente + blur. Se intentó vibrancy
+     nativo de macOS para blurear de verdad el escritorio detrás de la
+     ventana (el backdrop-filter de CSS no tiene acceso a nada fuera de
+     la propia página) — se revirtió porque con las esquinas redondeadas
+     del widget se colaba un rectángulo blanco suelto por las esquinas y
+     el margen de sombra. Nos quedamos con backdrop-filter: no bloquea
+     el escritorio real, pero al menos no rompe el render. */
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
 }
